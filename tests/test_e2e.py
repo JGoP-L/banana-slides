@@ -18,13 +18,14 @@
 
 import os
 import sys
+from pathlib import Path
 from dotenv import load_dotenv
 
 # 加载环境变量 - 支持从当前目录或父目录加载
 load_dotenv()  # 首先尝试当前目录
 if not os.getenv('GOOGLE_API_KEY'):
     # 如果没有找到，尝试父目录
-    parent_env = os.path.join(os.path.dirname(__file__), '..', '.env')
+    parent_env = str(Path(__file__).parent.parent / '.env')
     if os.path.exists(parent_env):
         load_dotenv(parent_env)
 
@@ -203,7 +204,7 @@ class E2ETestRunner:
         
         return False
     
-    def test_upload_template(self, template_path: str = "../template_g.png"):
+    def test_upload_template(self, template_path: str = "../../template_g.png"):
         """测试4: 上传模板"""
         self.print_section("测试4: 上传风格模板")
         
@@ -212,11 +213,12 @@ class E2ETestRunner:
             return False
         
         # 查找可用的模板文件
+        project_root = Path(__file__).parent.parent
         possible_paths = [
             template_path,
-            "/mnt/d/Desktop/banana-slides/template_g.png",
-            "/mnt/d/Desktop/banana-slides/template_b.png",
-            "/mnt/d/Desktop/banana-slides/template.png"
+            str(project_root / "template_g.png"),
+            str(project_root / "template_b.png"),
+            str(project_root / "template.png")
         ]
         
         template_file = None

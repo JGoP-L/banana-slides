@@ -26,7 +26,7 @@ try:
         model="gemini-3-pro-image-preview",
         contents=[
             prompt,
-            Image.open('template_g.png'),
+            Image.open('../template_g.png'),
         ],
         config=types.GenerateContentConfig(
             response_modalities=['TEXT', 'IMAGE'],

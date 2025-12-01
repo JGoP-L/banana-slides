@@ -8,6 +8,9 @@ from dotenv import load_dotenv
 # 加载环境变量
 load_dotenv()
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent / 'backend'))
 from services.ai_service import AIService
 
 def test_ai_service():

@@ -3,6 +3,9 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from demo import gen_outline, gen_desc, gen_prompts, gen_images_parallel, create_pptx_from_images
 from datetime import datetime
 
@@ -48,7 +51,7 @@ print()
 print("🖼️  步骤4: 并行生成图片（这需要一些时间）...")
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 output_dir = f"output_{timestamp}"
-ref_image = "template_g.png"
+ref_image = "../template_g.png"
 
 image_files = gen_images_parallel(prompts, ref_image, output_dir)
 successful = [f for f in image_files if f is not None]

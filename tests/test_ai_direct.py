@@ -6,6 +6,9 @@ import os
 # Load .env first
 load_dotenv()
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent / 'backend'))
 from services.ai_service import AIService
 
 def main():

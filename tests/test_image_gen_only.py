@@ -40,7 +40,7 @@ def test_image_generation():
     
     # 2. 上传模板
     print("2. 上传模板...")
-    template_path = "../template_g.png"
+    template_path = "../../template_g.png"
     if os.path.exists(template_path):
         with open(template_path, 'rb') as f:
             response = requests.post(

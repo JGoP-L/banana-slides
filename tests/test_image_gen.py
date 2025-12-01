@@ -1,6 +1,9 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent))
 from gemini_genai import gen_image
 
 print("=== 测试图片生成 ===")
@@ -24,7 +27,7 @@ print()
 
 try:
     print("🎨 开始生成图片...")
-    image = gen_image(prompt, "template_g.png")
+    image = gen_image(prompt, "../template_g.png")
     
     if image:
         print("✅ 图片生成成功！")
