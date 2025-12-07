@@ -372,7 +372,7 @@ export const Home: React.FC = () => {
               backgroundSize: '200% auto',
               animation: 'gradient 3s ease infinite',
             }}>
-              蕉幻 Banana Slides
+              蕉幻 · Banana Slides
             </span>
           </h1>
           
