@@ -233,7 +233,6 @@ def generate_page_description(project_id, page_id):
                 outline.append(page_data)
         
         # Initialize AI service
-        from flask import current_app
         ai_service = AIService()
         
         # Get reference files content and create project context
